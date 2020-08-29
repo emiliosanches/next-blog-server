@@ -6,6 +6,7 @@
   "author": "Emilio Sanches",
   "license": "MIT",
   "dependencies": {
+    "@types/mysql": "^2.15.15",
     "express": "^4.17.1",
     "mysql": "^2.18.1",
     "uuidv4": "^6.2.3"
