@@ -15,11 +15,18 @@ export class CreateBlogPostController {
         } = req.body;
 
         try {
+            const date = new Date();
+            const parsedDate =
+                date.getFullYear().toString() +
+                '-' + date.getMonth().toString() +
+                '-' + date.getDate().toString();
+
             await this.createBlogPostUseCase.execute({
                 title,
                 imageURL,
                 body,
-                author
+                author,
+                date: parsedDate
             });
 
             return res.status(201).send();

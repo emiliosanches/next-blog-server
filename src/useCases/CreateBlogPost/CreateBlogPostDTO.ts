@@ -3,4 +3,5 @@ export interface ICreateBlogPostRequestDTO {
     imageURL: string;
     body: string;
     author?: string;
+    date: string;
 }

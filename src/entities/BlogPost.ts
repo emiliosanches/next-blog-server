@@ -6,6 +6,7 @@ export class BlogPost {
     public title: string;
     public imageURL: string;
     public body: string;
+    public date: string;
     public author?: string;
 
     constructor(props: Omit<BlogPost, 'id'>, id?: string) {
