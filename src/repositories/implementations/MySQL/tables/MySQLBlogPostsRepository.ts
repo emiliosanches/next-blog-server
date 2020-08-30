@@ -1,8 +1,8 @@
 import mysql from 'mysql';
 
-import { IBlogPostsRepository } from "../IBlogPostsRepository";
-import { BlogPost } from "../../entities/BlogPost";
-import { credentials } from '../../../credentials';
+import { IBlogPostsRepository } from "../../../IBlogPostsRepository";
+import { BlogPost } from "../../../../entities/BlogPost";
+import { credentials } from '../../../../../credentials';
 import { uuid } from 'uuidv4';
 
 export class MySQLBlogPostsRepository implements IBlogPostsRepository {

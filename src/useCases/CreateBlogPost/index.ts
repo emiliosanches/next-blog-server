@@ -1,4 +1,4 @@
-import { MySQLBlogPostsRepository } from "../../repositories/implementations/MySQLBlogPostsRepository";
+import { MySQLBlogPostsRepository } from "../../repositories/implementations/MySQL/tables/MySQLBlogPostsRepository";
 import { CreateBlogPostUseCase } from "./CreateBlogPostUseCase";
 import { CreateBlogPostController } from "./CreateBlogPostController";
 
