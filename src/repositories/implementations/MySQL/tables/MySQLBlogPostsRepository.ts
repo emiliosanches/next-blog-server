@@ -13,7 +13,16 @@ export class MySQLBlogPostsRepository implements IBlogPostsRepository {
     ) {}
 
     async get(id: string): Promise<BlogPost> {
-        throw new Error("Method not implemented.");
+        return new Promise((resolve, reject) => {
+            this.conn.query(
+                'SELECT * FROM TBBlogPosts WHERE id = ?',
+                [id]
+            ).then(result  => {
+                resolve(result);
+            }).catch(err => {
+                reject(err);
+            });
+        });
     }
 
     async index(): Promise<BlogPost[]> {
