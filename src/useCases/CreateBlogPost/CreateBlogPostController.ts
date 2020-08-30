@@ -21,7 +21,7 @@ export class CreateBlogPostController {
                 '-' + date.getMonth().toString() +
                 '-' + date.getDate().toString();
 
-            await this.createBlogPostUseCase.execute({
+            const id = await this.createBlogPostUseCase.execute({
                 title,
                 imageURL,
                 body,
@@ -29,7 +29,9 @@ export class CreateBlogPostController {
                 date: parsedDate
             });
 
-            return res.status(201).send();
+            return res.status(201).json({
+                id
+            });
         } catch(err) {
             return res.status(400).json({
                 message: err.message || 'An unexpected error ocurred.'

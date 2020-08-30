@@ -7,8 +7,15 @@ export class CreateBlogPostUseCase {
         private blogPostsRepository: IBlogPostsRepository
     ) { }
 
-    async execute(data: ICreateBlogPostRequestDTO) {
+    async execute(data: ICreateBlogPostRequestDTO): Promise<string> {
         const blogPost = new BlogPost(data);
-        await this.blogPostsRepository.save(blogPost);
+        
+        return new Promise((resolve, reject) => {
+            this.blogPostsRepository.save(blogPost).then(id => {
+                return resolve(id);
+            }).catch(err => {
+                return reject(err);
+            });
+        })
     }
 }
