@@ -22,7 +22,7 @@ export class Connection {
         });
     }
 
-    async query(query: string, params?: Array<string | number | boolean | undefined>): Promise<BlogPost> {
+    async query(query: string, params?: Array<string | number | boolean | undefined>): Promise<BlogPost[]> {
         const parsedParams = params?.map(param => param || null)
         
         return new Promise((resolve, reject) => {

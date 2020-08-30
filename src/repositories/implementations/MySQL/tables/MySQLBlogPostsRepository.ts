@@ -18,7 +18,7 @@ export class MySQLBlogPostsRepository implements IBlogPostsRepository {
                 'SELECT * FROM TBBlogPosts WHERE id = ?',
                 [id]
             ).then(result  => {
-                resolve(result);
+                resolve(result[0]);
             }).catch(err => {
                 reject(err);
             });
@@ -26,7 +26,16 @@ export class MySQLBlogPostsRepository implements IBlogPostsRepository {
     }
 
     async index(): Promise<BlogPost[]> {
-        throw new Error("Method not implemented.");
+        return new Promise((resolve, reject) => {
+            this.conn.query(
+                'SELECT * FROM TBBlogPosts',
+                []
+            ).then(result => {
+                resolve(result);
+            }).catch(err => {
+                reject(err);
+            });
+        });
     }
 
     async save(post: BlogPost): Promise<string> {
