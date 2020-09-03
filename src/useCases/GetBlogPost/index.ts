@@ -1,10 +1,10 @@
-import { MySQLBlogPostsRepository } from "../../repositories/implementations/MySQL/tables/MySQLBlogPostsRepository";
+import { KnexBlogPostsRepository } from "../../repositories/implementations/Knex/tables/KnexBlogPostsRepository";
 import { GetBlogPostUseCase } from "./GetBlogPostUseCase";
 import { GetBlogPostController } from "./GetBlogPostController";
 
-const mySQLBlogPostsRepository = new MySQLBlogPostsRepository();
+const knexBlogPostsRepository = new KnexBlogPostsRepository();
 
-const getBlogPostUseCase = new GetBlogPostUseCase(mySQLBlogPostsRepository);
+const getBlogPostUseCase = new GetBlogPostUseCase(knexBlogPostsRepository);
 
 const getBlogPostController = new GetBlogPostController(getBlogPostUseCase);
 

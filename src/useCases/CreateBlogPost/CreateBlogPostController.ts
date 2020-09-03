@@ -9,7 +9,7 @@ export class CreateBlogPostController {
     async handle(req: Request, res: Response): Promise<Response> {
         const { 
             title,
-            imageURL,
+            image_url,
             body,
             author,
         } = req.body;
@@ -23,10 +23,10 @@ export class CreateBlogPostController {
 
             const id = await this.createBlogPostUseCase.execute({
                 title,
-                imageURL,
+                image_url,
                 body,
                 author,
-                date: parsedDate
+                created_at: parsedDate
             });
 
             return res.status(201).json({

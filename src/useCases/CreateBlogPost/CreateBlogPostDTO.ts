@@ -1,7 +1,7 @@
 export interface ICreateBlogPostRequestDTO {
     title: string;
-    imageURL: string;
+    image_url: string;
     body: string;
     author?: string;
-    date: string;
+    created_at: string;
 }

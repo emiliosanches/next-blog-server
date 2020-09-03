@@ -4,9 +4,9 @@ export class BlogPost {
     public readonly id: string;
 
     public title: string;
-    public imageURL: string;
+    public image_url: string;
     public body: string;
-    public date: string;
+    public created_at: string;
     public author?: string;
 
     constructor(props: Omit<BlogPost, 'id'>, id?: string) {
