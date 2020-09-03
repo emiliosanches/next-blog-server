@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.createBlogPostController = exports.createBlogPostUseCase = void 0;
+var KnexBlogPostsRepository_1 = require("../../repositories/implementations/Knex/tables/KnexBlogPostsRepository");
+var CreateBlogPostUseCase_1 = require("./CreateBlogPostUseCase");
+var CreateBlogPostController_1 = require("./CreateBlogPostController");
+var knexBlogPostsRepository = new KnexBlogPostsRepository_1.KnexBlogPostsRepository();
+var createBlogPostUseCase = new CreateBlogPostUseCase_1.CreateBlogPostUseCase(knexBlogPostsRepository);
+exports.createBlogPostUseCase = createBlogPostUseCase;
+var createBlogPostController = new CreateBlogPostController_1.CreateBlogPostController(createBlogPostUseCase);
+exports.createBlogPostController = createBlogPostController;
