@@ -2,7 +2,7 @@ import mysql from 'mysql';
 
 import { IBlogPostsRepository } from "../../../IBlogPostsRepository";
 import { BlogPost } from "../../../../entities/BlogPost";
-import { credentials } from '../../../../../credentials';
+import { credentials } from '../../../../credentials';
 import { uuid } from 'uuidv4';
 import { connection as knex } from '../Connection';
 

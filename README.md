@@ -21,7 +21,7 @@ You can clone this project and continue the development by yourself or develop n
     git clone https://github.com/emiliosanches/next-blog-server.git
   ```
 
-**2.** Create a file called `credentials.ts`
+**2.** Create a file called `credentials.ts` inside src folder
 
 **3.** Inside this file, export a json like:
 ```ts

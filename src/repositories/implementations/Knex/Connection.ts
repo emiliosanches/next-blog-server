@@ -1,6 +1,6 @@
 import Knex from 'knex';
 
-import { credentials } from '../../../../credentials';
+import { credentials } from '../../../credentials';
 
 const { dbConnection: { mysql: mySQLCredentials } } = credentials; 
 
