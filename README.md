@@ -39,7 +39,8 @@ export const credentials = {
             host: "hostname",
             database: "databasename"
         }
-        /** do it for every storage modes you have.
+        /** 
+        * Do it for every storage modes you have.
         * If you have any repository that is not a database,
         * create your own configuration mode.
         * Either, you can add more parameters to your object,
@@ -49,7 +50,26 @@ export const credentials = {
 }
 ```
 
-**4.** Currently, there is no migrations implementation, so you need to create your database and table(s) by yourself.
+**4.** Inside the Connection file, at `/src/repositories/implementations/Knex/Connection.ts`, change the data you pass into the connection property, considering the format of the object you exported from `credentials.ts`. Example:
+
+```ts
+import Knex from 'knex';
+
+import { credentials } from '../../../../credentials';
+
+const yourDatabaseConnection = credentials.sub.property.connection; 
+
+export const connection = Knex({
+    client: 'mysql' // The database you are using. Remember to `yarn add` or `npm install` its driver
+    connection: mySQLCredentials /**
+                                * Use the data you need to connect. For example, to connect with
+                                * mySQL, it needs to have: `host`, `user`, `password` and
+                                * `database` properties. 
+                                */
+});
+```
+
+**5.** Currently, there is no migrations implementation, so you need to create your database and table(s) by yourself.
 The format of table I'm using for the blog posts (at the moment, this is the only one table I have) is:
 <table>
 <thead>
@@ -75,7 +95,7 @@ The format of table I'm using for the blog posts (at the moment, this is the onl
 </tbody>
 </table>
 
-**5.** Running the project
+**6.** Running the project
 To run the project in development mode (using ts-node-dev, with transpile-only and respawn options):  
   `yarn dev` or `npm run dev`  
 To run the project in production mode (using the dist/ folder and javascript files):  
